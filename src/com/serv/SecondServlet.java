@@ -27,18 +27,20 @@ public class SecondServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter loser = response.getWriter();
-		loser.println("SecondSERVLET LETS SEE IF IT WORKS");
-		
+		/*PrintWriter loser = response.getWriter();
+		loser.println("SecondSERVLET LETS SEE IF IT WORKS");*/
+		response.sendRedirect("AllUsers.jsp");
 		try {
 			MySqlQueries newQuery = new MySqlQueries();
 			String var = newQuery.readUsers();
 			PrintWriter out = response.getWriter();
 			out.println(var);
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**
