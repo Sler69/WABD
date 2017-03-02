@@ -18,7 +18,7 @@ public class MySqlQueries {
 		  
 	  }
 	  
-	  
+	  //Method for users
 		public String readUsers() throws Exception {
 		    try {
 
