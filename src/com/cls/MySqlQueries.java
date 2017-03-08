@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.model.Usuarios;
 
 public class MySqlQueries {
 	  private Connection connect = null;
@@ -19,7 +22,8 @@ public class MySqlQueries {
 	  }
 	  
 	  //Method for users
-		public String readUsers() throws Exception {
+		public ArrayList<Usuarios> readUsers() throws Exception {
+			ArrayList<Usuarios> lstUsuarios = new ArrayList<Usuarios>();
 		    try {
 
 		      Class.forName("com.mysql.jdbc.Driver");
@@ -31,11 +35,20 @@ public class MySqlQueries {
 		      
 		      resultSet = statement.executeQuery("select * from usuario");
 
-		      String varOutput = "";
 		      while(resultSet.next()){
-		    	  varOutput = varOutput.concat(resultSet.getString("idUsuario")+" "+ resultSet.getString("nombre")+ "\n");
+		    	  Usuarios postUsuario = new Usuarios();
+
+		    	  	postUsuario.setIdUsuario(resultSet.getInt("id"));
+		    	  	postUsuario.setAltura(resultSet.getInt(""));
+		    	  	postUsuario.setPeso(resultSet.getInt(""));
+		    	  	postUsuario.setNombre(resultSet.getString(""));
+		    	  	postUsuario.setApellido(resultSet.getString(""));
+		    	  	postUsuario.setComplexion(resultSet.getString(""));
+		    	  	postUsuario.setIdCoach(resultSet.getInt(""));
+		    	  	postUsuario.setFechaNacimiento(resultSet.getDate("").toString());
+		            lstUsuarios.add(postUsuario);
 		      }
-		       return varOutput;
+		       return lstUsuarios;
 
 		    } catch (Exception e) {
 		      throw e;

@@ -11,7 +11,7 @@
 <script type="text/javascript">
 
 
-window.onload = function() {W
+window.onload = function() {
 	debugger
 	 var tab = $("#tabSelected").val();
 	};

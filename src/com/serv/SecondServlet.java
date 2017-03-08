@@ -2,6 +2,7 @@ package com.serv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cls.MySqlQueries;
+import com.model.Usuarios;
 
 /**
  * Servlet implementation class SecondServlet
@@ -32,7 +34,7 @@ public class SecondServlet extends HttpServlet {
 		response.sendRedirect("AllUsers.jsp");
 		try {
 			MySqlQueries newQuery = new MySqlQueries();
-			String var = newQuery.readUsers();
+			ArrayList<Usuarios> var = newQuery.readUsers();
 			PrintWriter out = response.getWriter();
 			out.println(var);
 			
