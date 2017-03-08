@@ -6,17 +6,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="css/TableStyle.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+
+window.onload = function() {
+	debugger
+	 var tab = "${users}";
+	};
+	
+</script>
+<title>Usuarios</title>
 </head>
 <body>
 <center>
 	<%@ include file="header.jsp" %>
 
 <table>	
-  <c:forEach items="${usuarios}" var="product">
+<tr>
+	<th>Usuario</th>
+	<th>Nombre</th>
+	<th>Apellido</th>
+</tr>
+  <c:forEach items="${users}" var="user">
     <tr>
-      <td><c:out value="${usuarios.tareWeight}" /></td>
-      <td><c:out value="${product.barCode}" /></td>
+      <td> ${user.idUsuario }</td>	
+      <td>${user.nombre}</td>
+      <td>${user.apellido}</td>
     </tr>
   </c:forEach>
 </table>

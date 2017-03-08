@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.model.Usuarios;
 
@@ -22,8 +23,8 @@ public class MySqlQueries {
 	  }
 	  
 	  //Method for users
-		public ArrayList<Usuarios> readUsers() throws Exception {
-			ArrayList<Usuarios> lstUsuarios = new ArrayList<Usuarios>();
+		public List<Usuarios> readUsers() throws Exception {
+			List<Usuarios> lstUsuarios = new ArrayList<Usuarios>();
 		    try {
 
 		      Class.forName("com.mysql.jdbc.Driver");
@@ -38,15 +39,16 @@ public class MySqlQueries {
 		      while(resultSet.next()){
 		    	  Usuarios postUsuario = new Usuarios();
 
-		    	  	postUsuario.setIdUsuario(resultSet.getInt("id"));
-		    	  	postUsuario.setAltura(resultSet.getInt(""));
-		    	  	postUsuario.setPeso(resultSet.getInt(""));
-		    	  	postUsuario.setNombre(resultSet.getString(""));
-		    	  	postUsuario.setApellido(resultSet.getString(""));
-		    	  	postUsuario.setComplexion(resultSet.getString(""));
-		    	  	postUsuario.setIdCoach(resultSet.getInt(""));
-		    	  	postUsuario.setFechaNacimiento(resultSet.getDate("").toString());
+		    	  	postUsuario.setIdUsuario(resultSet.getInt("idUsuario"));
+		    	  	postUsuario.setAltura(resultSet.getInt("altura"));
+		    	  	postUsuario.setPeso(resultSet.getInt("peso"));
+		    	  	postUsuario.setNombre(resultSet.getString("nombre"));
+		    	  	postUsuario.setApellido(resultSet.getString("apellido"));
+		    	  	postUsuario.setComplexion(resultSet.getString("complexion"));
+		    	  	postUsuario.setIdCoach(resultSet.getInt("id_coach"));
+		    	  	postUsuario.setFechaNacimiento(resultSet.getDate("fecha_nacimiento").toString());
 		            lstUsuarios.add(postUsuario);
+		            System.out.println(postUsuario.getIdUsuario() + " "+postUsuario.getNombre() +" "+ postUsuario.getApellido());
 		      }
 		       return lstUsuarios;
 

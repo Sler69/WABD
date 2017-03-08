@@ -12,7 +12,6 @@
 
 
 window.onload = function() {
-	debugger
 	 var tab = $("#tabSelected").val();
 	};
 	
@@ -22,7 +21,7 @@ window.onload = function() {
 <img src="images/WelcomeGym.jpg" width="640px" height="298px" >
 <div id="flip-tabs" style="background:black;height:38px;width:1000px;margin:0px" >  
     <ul id="flip-navigation"  style="padding:9px">  
-        <li ><a href="#" id="tab-0">Recent</a></li>  
+        <li ><a href="SecondServlet" id="tab-0">Users</a></li>  
         <li><a href="#" id="tab-1" onclick ="changeContent('userConsult')" >Popular</a></li>  
         <li><a href="#" id="tab-2" >Comments</a></li> 
         <li><a href="#" id="tab-3">Long</a></li> 

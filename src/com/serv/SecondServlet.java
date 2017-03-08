@@ -3,6 +3,7 @@ package com.serv;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,19 +30,21 @@ public class SecondServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*PrintWriter loser = response.getWriter();
-		loser.println("SecondSERVLET LETS SEE IF IT WORKS");*/
-		response.sendRedirect("AllUsers.jsp");
+		List<Usuarios> users = new ArrayList<Usuarios>();
 		try {
 			MySqlQueries newQuery = new MySqlQueries();
-			ArrayList<Usuarios> var = newQuery.readUsers();
+			users = newQuery.readUsers();
 			PrintWriter out = response.getWriter();
-			out.println(var);
+			out.println(users);
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
+		
+		request.setAttribute("users", users);
+		
+		request.getRequestDispatcher("/AllUsers.jsp").forward(request, response);
 		
 	}
 
