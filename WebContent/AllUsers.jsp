@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/TableStyle.css" rel="stylesheet" type="text/css"/>
+<link href="css/TableSyle.css" rel="stylesheet" type="text/css"/>
 <link href="css/DesignBD.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript">
 

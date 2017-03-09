@@ -10,10 +10,6 @@
  <script type="text/javascript" src="js/jquery.quickflip.js"></script>
 <script type="text/javascript">
 
-
-window.onload = function() {
-	 var tab = $("#tabSelected").val();
-	};
 	
 </script>
 </head>
@@ -23,8 +19,8 @@ window.onload = function() {
     <ul id="flip-navigation"  style="padding:9px">
         <li><a href="index.jsp">Home</a></li>  
         <li ><a href="SecondServlet" id="tab-0">Users</a></li>  
-        <li><a href="#" id="tab-1" onclick ="changeContent('userConsult')" >Popular</a></li>  
-        <li><a href="#" id="tab-2" >Comments</a></li> 
+        <li><a href="#" id="tab-1" >Workouts</a></li>  
+        <li><a href="#" id="tab-2" >Users Trainers</a></li> 
         <li><a href="#" id="tab-3">Long</a></li> 
     </ul>   
 </div>  

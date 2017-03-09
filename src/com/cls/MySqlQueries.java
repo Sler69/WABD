@@ -2,6 +2,7 @@ package com.cls;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -26,17 +27,23 @@ public class MySqlQueries {
 		public List<Usuarios> readUsers() throws Exception {
 			List<Usuarios> lstUsuarios = new ArrayList<Usuarios>();
 		    try {
-
+		    	
+		      PreparedStatement ps = null;
+		      String sqlQuery = "select * from usuario";
+		    	
 		      Class.forName("com.mysql.jdbc.Driver");
 		      
 		      connect = DriverManager.getConnection(host,user,passwd);
 
-
-		      statement = connect.createStatement();
-		      
+		      /*
+		      statement = connect.createStatement();		      
 		      resultSet = statement.executeQuery("select * from usuario");
-
-		      while(resultSet.next()){
+			  */
+		      
+		      ps = connect.prepareStatement(sqlQuery);
+			  resultSet = ps.executeQuery();
+		      
+			  while(resultSet.next()){
 		    	  Usuarios postUsuario = new Usuarios();
 
 		    	  	postUsuario.setIdUsuario(resultSet.getInt("idUsuario"));
@@ -59,6 +66,29 @@ public class MySqlQueries {
 		    }
 
 		  }
+		
+		public void CoachUser() throws Exception{
+			   try {
+				   	  PreparedStatement ps = null;
+				   	  String sqlQuery = "";
+				      Class.forName("com.mysql.jdbc.Driver");
+				      
+				      connect = DriverManager.getConnection(host,user,passwd);
+
+				      ps = connect.prepareStatement(sqlQuery);
+				     resultSet = ps.executeQuery();
+				      
+				      /*
+				      statement = connect.createStatement();
+				      resultSet = statement.executeQuery("select * from usuario");
+						*/
+				     
+			   } catch (Exception e) {
+				      throw e;
+				    } finally {
+				      close();
+				    } 
+		}	
 		
 		
 		 private void close() {
