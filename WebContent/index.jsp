@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
  <script type="text/javascript" src="js/jquery.quickflip.js"></script>
@@ -12,10 +13,12 @@
 <body>
 <center>
 <%@ include file="header.jsp" %>
+<label style="font-style:'Arvo'; font-size:15px">BIENVENIDOS</label>
+<br>
+<Label style="font-style:'Arvo'; font-size:15px">ADMINISTRACIÓN</Label>
+<br>
+<label style="font-style:'Arvo'; font-size:15px">BIENESTAR INTEGRAL</label>
 </center>
 
- <form action="SecondServlet">
- <input type="submit" value="try">
-</form>
 </body>
 </html>

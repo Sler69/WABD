@@ -20,7 +20,8 @@ window.onload = function() {
 <body style="background:#e6e6e6">
 <img src="images/WelcomeGym.jpg" width="640px" height="298px" >
 <div id="flip-tabs" style="background:black;height:38px;width:1000px;margin:0px" >  
-    <ul id="flip-navigation"  style="padding:9px">  
+    <ul id="flip-navigation"  style="padding:9px">
+        <li><a href="index.jsp">Home</a></li>  
         <li ><a href="SecondServlet" id="tab-0">Users</a></li>  
         <li><a href="#" id="tab-1" onclick ="changeContent('userConsult')" >Popular</a></li>  
         <li><a href="#" id="tab-2" >Comments</a></li> 
