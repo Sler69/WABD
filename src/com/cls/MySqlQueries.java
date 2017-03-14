@@ -88,7 +88,55 @@ public class MySqlQueries {
 				    } finally {
 				      close();
 				    } 
-		}	
+		}
+		
+		public void NewUser(Usuarios newUser)throws Exception{
+			   try {
+				   	  PreparedStatement ps = null;
+				   	  
+				   	  String sqlQuery = "";
+				      Class.forName("com.mysql.jdbc.Driver");
+				      
+				      connect = DriverManager.getConnection(host,user,passwd);
+
+				      ps = connect.prepareStatement(sqlQuery);
+				      resultSet = ps.executeQuery();
+				      
+				      /*
+				      statement = connect.createStatement();
+				      resultSet = statement.executeQuery("select * from usuario");
+						*/
+				     
+			   } catch (Exception e) {
+				      throw e;
+				    } finally {
+				      close();
+				    } 
+		}
+		
+		public void WorkOuts(int userId)throws Exception{
+			try {
+			   	  PreparedStatement ps = null;
+			   	  
+			   	  String sqlQuery = "";
+			      Class.forName("com.mysql.jdbc.Driver");
+			      
+			      connect = DriverManager.getConnection(host,user,passwd);
+
+			      ps = connect.prepareStatement(sqlQuery);
+			      resultSet = ps.executeQuery();
+			      
+			      /*
+			      statement = connect.createStatement();
+			      resultSet = statement.executeQuery("select * from usuario");
+					*/
+			     
+		   } catch (Exception e) {
+			      throw e;
+			    } finally {
+			      close();
+			    } 
+		}
 		
 		
 		 private void close() {

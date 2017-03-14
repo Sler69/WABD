@@ -19,9 +19,9 @@
     <ul id="flip-navigation"  style="padding:9px">
         <li><a href="index.jsp">Home</a></li>  
         <li ><a href="SecondServlet" id="tab-0">Users</a></li>  
-        <li><a href="#" id="tab-1" >Workouts</a></li>  
+        <li><a href="WorkoutHtml.jsp" id="tab-1" >Workouts</a></li>  
         <li><a href="#" id="tab-2" >Users Trainers</a></li> 
-        <li><a href="#" id="tab-3">Long</a></li> 
+        <li><a href="NewUser2.jsp" id="tab-3">User </a></li> 
     </ul>   
 </div>  
 </body>

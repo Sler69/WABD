@@ -21,7 +21,8 @@ window.onload = function() {
 <body>
 <center>
 	<%@ include file="header.jsp" %>
-
+</center>
+<center>
 <table>	
 <tr>
 	<th>Usuario</th>

@@ -13,11 +13,11 @@
 <body>
 <center>
 <%@ include file="header.jsp" %>
-<label style="font-style:'Arvo'; font-size:15px">BIENVENIDOS</label>
+<label style="font-family:'Arvo'; font-size:15px">BIENVENIDOS</label>
 <br>
-<Label style="font-style:'Arvo'; font-size:15px">ADMINISTRACIÓN</Label>
+<Label style="font-family:'Arvo'; font-size:15px">ADMINISTRACIÓN</Label>
 <br>
-<label style="font-style:'Arvo'; font-size:15px">BIENESTAR INTEGRAL</label>
+<label style="font-family:'Arvo'; font-size:15px">BIENESTAR INTEGRAL</label>
 </center>
 
 </body>
