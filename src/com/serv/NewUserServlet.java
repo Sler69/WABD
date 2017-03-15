@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cls.MySqlQueries;
 import com.model.Usuarios;
 
 /**
@@ -57,6 +58,13 @@ public class NewUserServlet extends HttpServlet {
 		newUser.setIdCoach(intCoach);
 		newUser.setIdUsuario(intIdUser);
 		
+		MySqlQueries mysql = new MySqlQueries();
+		try {
+			mysql.NewUser(newUser);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 		
 		
 	}
