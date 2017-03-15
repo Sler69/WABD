@@ -53,7 +53,7 @@ public class WorkoutServlet extends HttpServlet {
 		}
 		request.setAttribute("workouts", workouts);
 		
-		request.getRequestDispatcher("/CoachList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WorkoutLists.jsp").forward(request, response);
 	}
 
 }

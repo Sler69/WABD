@@ -56,7 +56,7 @@ public class CoachUserServlet extends HttpServlet {
 		
 		request.setAttribute("coaches", coaches);
 		
-		request.getRequestDispatcher("/WorkoutLists.jsp").forward(request, response);
+		request.getRequestDispatcher("/CoachList.jsp").forward(request, response);
 		
 	}
 
