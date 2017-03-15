@@ -8,7 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.model.CoachUsuario;
 import com.model.Usuarios;
+import com.model.Workout;
 
 public class MySqlQueries {
 	  private Connection connect = null;
@@ -67,22 +69,28 @@ public class MySqlQueries {
 
 		  }
 		
-		public void CoachUser() throws Exception{
+		public List<CoachUsuario> CoachUser(int userId) throws Exception{
 			   try {
+				   	  List<CoachUsuario> coaches = new ArrayList<CoachUsuario>();	
 				   	  PreparedStatement ps = null;
-				   	  String sqlQuery = "";
+				   	  String sqlQuery = "SELECT c.apellido,c.horario, c.Nombre , u.nombre FROM Usuario AS u JOIN Coach AS c ON c.id_coach = u.id_coach WHERE u.idUsuario = "+ userId ;
 				      Class.forName("com.mysql.jdbc.Driver");
 				      
 				      connect = DriverManager.getConnection(host,user,passwd);
 
 				      ps = connect.prepareStatement(sqlQuery);
 				     resultSet = ps.executeQuery();
-				      
-				      /*
-				      statement = connect.createStatement();
-				      resultSet = statement.executeQuery("select * from usuario");
-						*/
-				     
+				     	
+				     while(resultSet.next()){
+				    	 CoachUsuario newCoach = new CoachUsuario();
+				    	 newCoach.setStrNombre(resultSet.getString("Nombre"));
+				    	 newCoach.setStrNombreUser(resultSet.getString("nombre"));
+				    	 newCoach.setStrApellido(resultSet.getString("apellido"));
+				    	 newCoach.setStrHorario(resultSet.getString("horario"));
+				    	 System.out.println(newCoach.getStrNombre() + newCoach.getStrApellido() );
+				    	 coaches.add(newCoach);
+				     }
+				     return coaches;
 			   } catch (Exception e) {
 				      throw e;
 				    } finally {
@@ -105,7 +113,7 @@ public class MySqlQueries {
 				      connect = DriverManager.getConnection(host,user,passwd);
 
 				      ps = connect.prepareStatement(sqlQuery);
-				      resultSet = ps.executeQuery();
+				      ps.executeUpdate();
 				      
 				      /*
 				      statement = connect.createStatement();
@@ -119,11 +127,13 @@ public class MySqlQueries {
 				    } 
 		}
 		
-		public void WorkOuts(int userId)throws Exception{
+		public List<Workout> WorkOuts(int userId)throws Exception{
 			try {
+				  List<Workout> workouts = new ArrayList<Workout>();
 			   	  PreparedStatement ps = null;
 			   	  
-			   	  String sqlQuery = "";
+			   	  String sqlQuery = "SELECT u.nombre,ru.descripcion,e.tipo,e.medicion,e.reps FROM usuario AS u JOIN Rutina_usuario AS ru ON ru.id_usuario = u.idUsuario JOIN Rutina_ejercicio AS re ON re.id_rutina = ru.id_rutina JOIN Ejercicio_tipo AS e ON e.id_ejercicio = re.id_ejercicio WHERE u.idUsuario = " + userId;
+			   		    
 			      Class.forName("com.mysql.jdbc.Driver");
 			      
 			      connect = DriverManager.getConnection(host,user,passwd);
@@ -131,16 +141,24 @@ public class MySqlQueries {
 			      ps = connect.prepareStatement(sqlQuery);
 			      resultSet = ps.executeQuery();
 			      
-			      /*
-			      statement = connect.createStatement();
-			      resultSet = statement.executeQuery("select * from usuario");
-					*/
-			     
+			      while(resultSet.next()){
+			    	  Workout newWorkout = new Workout();
+			    	  newWorkout.setNombre(resultSet.getString("nombre"));
+			    	  newWorkout.setStrDescripcion(resultSet.getString("descripcion"));
+			    	  newWorkout.setStrWorkout(resultSet.getString("tipo"));
+			    	  newWorkout.setIntReps(resultSet.getInt("reps"));
+			    	  newWorkout.setIntSets(resultSet.getInt("medicion"));
+			    	  
+			    	  workouts.add(newWorkout);
+			      }
+			      
+			      return workouts; 
 		   } catch (Exception e) {
 			      throw e;
 			    } finally {
 			      close();
 			    } 
+			
 		}
 		
 		

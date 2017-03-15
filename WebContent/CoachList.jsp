@@ -16,19 +16,19 @@
 </center>
 <center>
 <div>
-  <h2 style="text-transform: uppercase;"><c:out value="${workouts[0].nombre}" />-<c:out value="${workouts[0].strDescripcion}" /> </h2>
+  <h2 style="text-transform: uppercase;"><c:out value="${coaches[0].strNombreUser}" />-Coaches </h2>
 </div>
 <table>	
 <tr>
-	<th>Exercise</th>
-	<th>Sets</th>
-	<th>Reps</th>
+	<th>Name</th>
+	<th>Last Name</th>
+	<th>Hours</th>
 </tr>
-  <c:forEach items="${workouts}" var="workout">
+  <c:forEach items="${coaches}" var="coach">
     <tr>
-      <td> ${workout.strWorkout }</td>	
-      <td>${workout.intSets}</td>
-      <td>${workout.intReps}</td>
+      <td> ${coach.strNombre }</td>	
+      <td>${coach.strApellido}</td>
+      <td>${coach.strHorario}</td>
     </tr>
   </c:forEach>
 </table>
