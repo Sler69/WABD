@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <link href="css/FormCss.css" rel="stylesheet" type="text/css"/>
@@ -13,7 +14,7 @@
 <%@ include file="header.jsp" %>
 <div class="form-style-8">
   <h2>WorkOuts</h2>
-  <form action="" method="post">
+  <form action="WorkoutSevlet" method="post">
     <input type="text" name="field1" placeholder="User ID" />
     <input type="submit" value="Look for Workouts" />
   </form>

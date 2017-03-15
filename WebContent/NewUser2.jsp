@@ -13,7 +13,7 @@
 <%@ include file="header.jsp" %>
 <div class="form-style-8">
   <h2>New User</h2>
-  <form action="" method="post">
+  <form action="NewUserServlet" method="post">
     <input type="text" name="field1" placeholder="User ID" />
     <input type="text" name="field2" placeholder="Name" />
     <input type="text" name="field3" placeholder="Last Name" />

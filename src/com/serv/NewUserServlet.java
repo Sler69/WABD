@@ -39,14 +39,14 @@ public class NewUserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		Usuarios newUser = new Usuarios();
-		String strName = request.getParameter("");
-		String strLastName = request.getParameter("");
-		String strDate = request.getParameter("");
-		String strComplexion = request.getParameter("");
-		int intWeight = Integer.parseInt(request.getParameter(""));
-		int intHeight = Integer.parseInt(request.getParameter(""));
-		int intIdUser = Integer.parseInt(request.getParameter(""));
-		int intCoach = Integer.parseInt(request.getParameter(""));
+		String strName = request.getParameter("field2");
+		String strLastName = request.getParameter("field3");
+		String strDate = request.getParameter("field4");
+		String strComplexion = request.getParameter("field7");
+		int intWeight = Integer.parseInt(request.getParameter("field6"));
+		int intHeight = Integer.parseInt(request.getParameter("field5"));
+		int intIdUser = Integer.parseInt(request.getParameter("field1"));
+		int intCoach = Integer.parseInt(request.getParameter("field8"));
 		
 		newUser.setNombre(strName);
 		newUser.setApellido(strLastName);

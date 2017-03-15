@@ -94,7 +94,12 @@ public class MySqlQueries {
 			   try {
 				   	  PreparedStatement ps = null;
 				   	  
-				   	  String sqlQuery = "";
+				   	  
+				   	  
+				   	  String sqlQuery = "insert into usuario (idUsuario,nombre,apellido,fecha_nacimiento,altura,peso,complexion,id_coach)"+
+			   			  			"values("+newUser.getIdUsuario()+",'"+newUser.getNombre()+"','"+ newUser.getApellido()+
+			   			  			"','"+newUser.getFechaNacimiento()+"',"+ newUser.getAltura()+","+newUser.getPeso()+
+			   			  			",'"+ newUser.getComplexion()+"',"+newUser.getIdCoach() +");";
 				      Class.forName("com.mysql.jdbc.Driver");
 				      
 				      connect = DriverManager.getConnection(host,user,passwd);
