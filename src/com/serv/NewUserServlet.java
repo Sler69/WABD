@@ -65,7 +65,7 @@ public class NewUserServlet extends HttpServlet {
 
 			e.printStackTrace();
 		}
-		
+		request.getRequestDispatcher("/NewUserSucess.jsp").forward(request, response);
 		
 	}
 
